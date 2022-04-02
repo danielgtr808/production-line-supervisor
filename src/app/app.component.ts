@@ -1,5 +1,5 @@
+import { CircuitService } from './shared/circuit/circuit.service';
 import { Component } from '@angular/core';
-import Segment from './drawing/models/segment.type';
 
 @Component({
     selector: 'app-root',
@@ -7,19 +7,9 @@ import Segment from './drawing/models/segment.type';
     styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
     title = "Production line supervisor";
 
-    public segments: Segment[] = [
-        {
-            heigth: 10,
-            length: 100,
-            type: "Line"
-        },
-        {
-            heigth: 20,
-            length: 20,
-            type: "Line"
-        }
-    ]
+    constructor(public circuitService: CircuitService) { }
 
 }
