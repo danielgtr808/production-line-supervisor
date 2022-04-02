@@ -1,0 +1,9 @@
+<label>
+    {{ this.label }}
+    <input
+        (blur)="this.onBaseTouchedFn()"
+        (input)="this.formFieldOnChange($event, this.type === 'number')"
+        [(ngModel)]="this.value"
+        [type]="this.type"
+    >
+</label>

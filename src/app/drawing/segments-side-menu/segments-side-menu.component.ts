@@ -1,6 +1,5 @@
 import { CircuitService } from 'src/app/shared/circuit/circuit.service';
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
 import Segment from '../models/segment.type';
 
 @Component({
@@ -10,23 +9,24 @@ import Segment from '../models/segment.type';
 })
 export class SegmentsSideMenuComponent {
 
-    public form: FormGroup;
     public segments: Segment[] = [];
 
-    constructor(circuitService: CircuitService, private formBuilder: FormBuilder) {
-        this.form = this.formBuilder.group({
-            segments: this.formBuilder.array([])
-        });
-
+    constructor(circuitService: CircuitService) {
         this.segments = circuitService.segments;
     }
 
-    click() {
-        this.segments.push({
-            heigth: 5,
-            length: 5,
-            type: "Line"
-        })
+    createLineRow(): void {
+        // const newSegment: Segment = {
+        //     heigth: 0,
+        //     index: 0,
+        //     length: 0,
+        //     type: "Line"
+        // }
+
+        // this.segments.push(newSegment);
+        if(this.segments[0].type === "Line") {
+            this.segments[0].heigth += 15
+        }
     }
 
 }

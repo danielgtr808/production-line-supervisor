@@ -1,0 +1,19 @@
+<ng-container *ngIf="segment">
+    <td>
+        Line
+    </td>
+    <td>
+        <app-segment-field
+            (input)="this.onInput($event, 'length')"
+            [type]="'number'"
+            [value]="this.segment.length"
+        ></app-segment-field>
+    </td>
+    <td>
+        <app-segment-field
+            (input)="this.onInput($event, 'heigth')"
+            [type]="'number'"
+            [value]="this.segment.heigth"
+        ></app-segment-field>
+    </td>    
+</ng-container>

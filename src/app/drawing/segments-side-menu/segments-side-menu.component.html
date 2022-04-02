@@ -1,5 +1,10 @@
-<form [formGroup]="this.form" [noValidate]>
-    {{ this.segments | json }}
-</form>
+<table>
+    <tbody>
+        <tr *ngFor="let segment of this.segments">
+            <app-line-row *ngIf="this.segment.type === 'Line'" [segment]="segment"></app-line-row>
+        </tr>
+    </tbody>
+</table>
 
-<button (click)="click()" ></button>
+<button (click)="this.createLineRow()" >Nova linha</button>
+{{ this.segments | json }}
