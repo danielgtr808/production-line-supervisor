@@ -10,9 +10,9 @@ export class LineRowComponent {
 
     @Input() segment: LineSegment | undefined;
 
-    onInput(event: Event, field: "heigth" | "length"): void {
-        this.segment![field] = parseFloat((event.target as HTMLInputElement).value) || 0;
+    onInput(value: number, field: "heigth" | "length"): void {
+        console.log("aqui")
+        this.segment![field] = value;
     }
-
 
 }

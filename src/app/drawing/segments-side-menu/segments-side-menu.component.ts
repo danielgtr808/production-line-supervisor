@@ -1,6 +1,7 @@
 import { CircuitService } from 'src/app/shared/circuit/circuit.service';
 import { Component } from '@angular/core';
 import Segment from '../models/segment.type';
+import SegmentType from '../models/segment-type.type';
 
 @Component({
     selector: 'app-segments-side-menu',
@@ -15,18 +16,26 @@ export class SegmentsSideMenuComponent {
         this.segments = circuitService.segments;
     }
 
-    createLineRow(): void {
-        // const newSegment: Segment = {
-        //     heigth: 0,
-        //     index: 0,
-        //     length: 0,
-        //     type: "Line"
-        // }
-
-        // this.segments.push(newSegment);
-        if(this.segments[0].type === "Line") {
-            this.segments[0].heigth += 15
+    createSegment(type: SegmentType) {
+        switch(type) {
+            case "Arc":
+                this.segments.push({
+                    radius: 0,
+                    type: "Arc"
+                });
+                break;
+            case "Line":
+                this.segments.push({
+                    heigth: 0,
+                    length: 0,
+                    type: "Line"
+                });
+                break
         }
+    }
+
+    changeSegmentType(segment: Segment, newType: SegmentType): void {
+        
     }
 
 }

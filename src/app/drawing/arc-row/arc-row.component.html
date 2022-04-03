@@ -1,0 +1,11 @@
+<ng-container *ngIf="segment">
+    <td>
+        Arc
+    </td>
+    <td>
+        <app-segment-field
+            (inputEvent)="this.onInput($event, 'radius')"
+            [value]="this.segment.radius"
+        ></app-segment-field>
+    </td>  
+</ng-container>

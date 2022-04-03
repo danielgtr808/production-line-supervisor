@@ -4,15 +4,13 @@
     </td>
     <td>
         <app-segment-field
-            (input)="this.onInput($event, 'length')"
-            [type]="'number'"
+            (inputEvent)="this.onInput($event, 'length')"
             [value]="this.segment.length"
         ></app-segment-field>
     </td>
     <td>
         <app-segment-field
-            (input)="this.onInput($event, 'heigth')"
-            [type]="'number'"
+            (inputEvent)="this.onInput($event, 'heigth')"
             [value]="this.segment.heigth"
         ></app-segment-field>
     </td>    

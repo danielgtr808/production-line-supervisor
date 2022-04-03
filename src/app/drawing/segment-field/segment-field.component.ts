@@ -1,17 +1,19 @@
-import { Component, forwardRef } from '@angular/core';
-import { NG_VALUE_ACCESSOR } from '@angular/forms';
-import { BaseFormField } from 'src/app/helpers/base-form-field.model';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
     selector: 'app-segment-field',
     templateUrl: './segment-field.component.html',
-    styleUrls: ['./segment-field.component.css'],
-    providers: [     
-        {
-            provide: NG_VALUE_ACCESSOR, 
-            useExisting: forwardRef(() => SegmentFieldComponent),
-            multi: true
-        }   
-    ]  
+    styleUrls: ['./segment-field.component.css'] 
 })
-export class SegmentFieldComponent extends BaseFormField { }
+export class SegmentFieldComponent {
+
+    @Input() label: string = "";
+    @Input() value: number = 0;
+    @Output() inputEvent = new EventEmitter<number>();
+
+    onInput(): void {
+        console.log("ah")
+        this.inputEvent.emit(this.value);
+    }
+
+}

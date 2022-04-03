@@ -1,10 +1,11 @@
 <table>
     <tbody>
         <tr *ngFor="let segment of this.segments">
+            <app-arc-row *ngIf="this.segment.type === 'Arc'" [segment]="segment"></app-arc-row>
             <app-line-row *ngIf="this.segment.type === 'Line'" [segment]="segment"></app-line-row>
         </tr>
     </tbody>
 </table>
 
-<button (click)="this.createLineRow()" >Nova linha</button>
+<button (click)="this.createSegment('Arc')" >Nova linha</button>
 {{ this.segments | json }}
