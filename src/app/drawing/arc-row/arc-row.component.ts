@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import ArcSegment from '../models/arc-segment.type';
+import SegmentType from '../models/segment-type.type';
 
 @Component({
     selector: 'app-arc-row',
@@ -9,9 +10,15 @@ import ArcSegment from '../models/arc-segment.type';
 export class ArcRowComponent {
 
     @Input() segment: ArcSegment | undefined;
+    @Output() changeSegmentType = new EventEmitter<SegmentType>();
+
 
     onInput(value: number, field: "radius"): void {
         this.segment![field] = value;
+    }
+
+    onChangeSegmentType(newType: SegmentType): void {
+        this.changeSegmentType.emit(newType);
     }
 
 }

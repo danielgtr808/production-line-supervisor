@@ -12,7 +12,6 @@ export class SegmentFieldComponent {
     @Output() inputEvent = new EventEmitter<number>();
 
     onInput(): void {
-        console.log("ah")
         this.inputEvent.emit(this.value);
     }
 

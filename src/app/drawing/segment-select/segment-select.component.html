@@ -1,1 +1,8 @@
-<p>segment-select works!</p>
+<select
+    (change)="onChange($event)"
+    [value]="value"
+>
+    <option style="display: none;" value=""></option>
+    <option value="Arc">Arco</option>
+    <option value="Line">Linha</option>
+</select>

@@ -1,8 +1,16 @@
 <table>
     <tbody>
         <tr *ngFor="let segment of this.segments">
-            <app-arc-row *ngIf="this.segment.type === 'Arc'" [segment]="segment"></app-arc-row>
-            <app-line-row *ngIf="this.segment.type === 'Line'" [segment]="segment"></app-line-row>
+            <app-arc-row
+                (changeSegmentType)="changeSegmentType(segment, $event)"
+                *ngIf="this.segment.type === 'Arc'"
+                [segment]="segment"
+            ></app-arc-row>
+            <app-line-row
+                (changeSegmentType)="changeSegmentType(segment, $event)"
+                *ngIf="this.segment.type === 'Line'"
+                [segment]="segment"
+            ></app-line-row>
         </tr>
     </tbody>
 </table>

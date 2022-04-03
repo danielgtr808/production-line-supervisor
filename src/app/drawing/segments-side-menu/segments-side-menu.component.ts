@@ -2,6 +2,7 @@ import { CircuitService } from 'src/app/shared/circuit/circuit.service';
 import { Component } from '@angular/core';
 import Segment from '../models/segment.type';
 import SegmentType from '../models/segment-type.type';
+import NeverFunction from 'src/app/helpers/never-function.function';
 
 @Component({
     selector: 'app-segments-side-menu',
@@ -17,25 +18,35 @@ export class SegmentsSideMenuComponent {
     }
 
     createSegment(type: SegmentType) {
-        switch(type) {
-            case "Arc":
-                this.segments.push({
-                    radius: 0,
-                    type: "Arc"
-                });
-                break;
-            case "Line":
-                this.segments.push({
-                    heigth: 0,
-                    length: 0,
-                    type: "Line"
-                });
-                break
-        }
+        this.segments.push(this.generateSegment(type));
     }
 
     changeSegmentType(segment: Segment, newType: SegmentType): void {
-        
+        const oldSegmentIndex = this.segments.indexOf(segment);
+        if(oldSegmentIndex === -1) return;
+
+        this.segments[oldSegmentIndex] = this.generateSegment(newType);
+    }
+
+    private generateSegment(type: SegmentType): Segment {
+        switch(type) {
+            case "Arc":
+                return {
+                    radius: 0,
+                    type: "Arc"
+                }
+            case "Line":
+                return {
+                    heigth: 0,
+                    length: 0,
+                    type: "Line"
+                }
+            default:
+                NeverFunction(type);
+                break;
+        }
+
+        throw("");
     }
 
 }

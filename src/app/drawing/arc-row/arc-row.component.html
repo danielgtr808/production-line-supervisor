@@ -1,6 +1,9 @@
 <ng-container *ngIf="segment">
     <td>
-        Arc
+        <app-segment-select
+            (changeEvent)="onChangeSegmentType($event)"
+            [value]="'Arc'"
+        ></app-segment-select>
     </td>
     <td>
         <app-segment-field
