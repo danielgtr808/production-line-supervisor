@@ -21,7 +21,7 @@ export class SegmentsSideMenuComponent {
     }
 
     changeSegmentType(oldSegment: Segment, newType: SegmentType): void {
-        this.circuitService.changeSegmentType(oldSegment, newType);
+        this.circuitService.replaceSegmentByType(oldSegment, newType);
     }
 
 }

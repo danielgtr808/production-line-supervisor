@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import ArcSegment from 'src/app/drawing/models/arc-segment.type';
+import LineSegment from 'src/app/drawing/models/line-segment.type';
 import SegmentType from 'src/app/drawing/models/segment-type.type';
 import Segment from 'src/app/drawing/models/segment.type';
 import NeverFunction from 'src/app/helpers/never-function.function';
@@ -17,8 +19,11 @@ export class CircuitService {
         return newSegment;
     }
 
-    changeSegmentType(oldSegment: Segment, newType: SegmentType): void {
-        Object.assign(oldSegment, this.generateSegment(newType));
+    replaceSegmentByType(oldSegment: Segment, newType: SegmentType): void {
+        const oldSegmentIndex = this.segments.findIndex(x => x === oldSegment);
+        if(oldSegmentIndex === -1) return;
+
+        this.segments[oldSegmentIndex] = this.generateSegment(newType);
     }
 
     loadSegments(segments: Segment[]): void {
@@ -35,19 +40,9 @@ export class CircuitService {
     private generateSegment(type: SegmentType): Segment {
         switch(type) {
             case "Arc":
-                return {
-                    degrees: 90,
-                    inclination: 0,
-                    radius: 0,
-                    sweep: 0,
-                    type: "Arc"
-                }
+                return new ArcSegment(90, 0, 0, 0);
             case "Line":
-                return {
-                    heigth: 0,
-                    length: 0,
-                    type: "Line"
-                }
+                return new LineSegment(0, 0);
             default:
                 NeverFunction(type);
                 break;

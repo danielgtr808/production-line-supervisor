@@ -14,7 +14,7 @@ export class ArcRowComponent {
 
 
     onInput(value: number, field: keyof ArcSegment): void {
-        if(!this.segment || field === "type") return;
+        if(!this.segment || field === "type" || field === "path") return;
 
         this.segment[field] = value
     }
