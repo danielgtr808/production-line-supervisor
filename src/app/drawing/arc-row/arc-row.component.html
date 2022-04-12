@@ -10,5 +10,23 @@
             (inputEvent)="this.onInput($event, 'radius')"
             [value]="this.segment.radius"
         ></app-segment-field>
-    </td>  
+    </td>
+    <td>
+        <app-segment-field
+            (inputEvent)="this.onInput($event, 'degrees')"
+            [value]="this.segment.degrees"
+        ></app-segment-field>
+    </td>
+    <td>
+        <app-segment-field
+            (inputEvent)="this.onInput($event, 'inclination')"
+            [value]="this.segment.inclination"
+        ></app-segment-field>
+    </td>
+    <td>
+        <app-sweep-arc-select
+            (changeEvent)="this.onInput($event, 'sweep')"
+            [value]="this.segment.sweep"
+        ></app-sweep-arc-select>
+    </td>
 </ng-container>

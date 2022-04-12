@@ -13,8 +13,10 @@ export class ArcRowComponent {
     @Output() changeSegmentType = new EventEmitter<SegmentType>();
 
 
-    onInput(value: number, field: "radius"): void {
-        this.segment![field] = value;
+    onInput(value: number, field: keyof ArcSegment): void {
+        if(!this.segment || field === "type") return;
+
+        this.segment[field] = value
     }
 
     onChangeSegmentType(newType: SegmentType): void {

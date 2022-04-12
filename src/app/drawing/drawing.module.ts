@@ -6,6 +6,7 @@ import { SegmentsSideMenuComponent } from './segments-side-menu/segments-side-me
 import { LineRowComponent } from './line-row/line-row.component';
 import { ArcRowComponent } from './arc-row/arc-row.component';
 import { SegmentSelectComponent } from './segment-select/segment-select.component';
+import { SweepArcSelectComponent } from './sweep-arc-select/sweep-arc-select.component';
 
 @NgModule({
     declarations: [
@@ -13,7 +14,8 @@ import { SegmentSelectComponent } from './segment-select/segment-select.componen
         SegmentsSideMenuComponent,
         LineRowComponent,
         ArcRowComponent,
-        SegmentSelectComponent
+        SegmentSelectComponent,
+        SweepArcSelectComponent
     ],
     exports: [
         SegmentsSideMenuComponent

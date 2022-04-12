@@ -1,7 +1,7 @@
 
 import CircuitBoardInfo from './circuit-board-info.model';
 import { Component, Input } from '@angular/core';
-import SegmentBuilder from 'src/app/helpers/segment-builder.function';
+import segmentBuilder from 'src/app/helpers/segment-builder.function';
 import Segment from 'src/app/drawing/models/segment.type';
 
 @Component({
@@ -24,7 +24,7 @@ export class CircuitComponent {
 
     get d(): string {
         let segmentsAttribute: string = "M0 0";
-        this.segments.forEach(x => segmentsAttribute += ` ${SegmentBuilder(x)}`);
+        this.segments.forEach(x => segmentsAttribute += ` ${segmentBuilder(x)}`);
 
         return segmentsAttribute;
     }
