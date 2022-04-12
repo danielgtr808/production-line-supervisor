@@ -20,7 +20,11 @@ export class SegmentsSideMenuComponent {
         this.circuitService.createSegment(type);
     }
 
-    changeSegmentType(oldSegment: Segment, newType: SegmentType): void {
+    deleteSegment(segment: Segment) {
+        this.circuitService.deleteSegment(segment);
+    }
+
+    replaceSegmentByType(oldSegment: Segment, newType: SegmentType): void {
         this.circuitService.replaceSegmentByType(oldSegment, newType);
     }
 

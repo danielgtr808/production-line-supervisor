@@ -19,6 +19,13 @@ export class CircuitService {
         return newSegment;
     }
 
+    deleteSegment(segment: Segment) {
+        const oldSegmentIndex = this.segments.findIndex(x => x === segment);
+        if(oldSegmentIndex === -1) return;
+
+        this.segments.splice(oldSegmentIndex, 1);
+    }
+
     replaceSegmentByType(oldSegment: Segment, newType: SegmentType): void {
         const oldSegmentIndex = this.segments.findIndex(x => x === oldSegment);
         if(oldSegmentIndex === -1) return;
