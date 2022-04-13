@@ -66,8 +66,7 @@ export class BaseFormField extends BaseControlValueAccessor {
 
     get showError(): boolean {
         if(!this.abstractControl) return false
-        if(this.abstractControl.untouched) return false
-        if(Object.keys(this.abstractControl).length === 0) return false
+        if(this.abstractControl.untouched && !this.abstractControl.dirty) return false
 
         return true;
     }

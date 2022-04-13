@@ -104,6 +104,10 @@ app-root {
     width: 100%;
 }
 
+.primary-button[disabled] {
+    opacity: 0.6;
+}
+
 .tertiary-button {
     background-color: transparent;
     border: none;

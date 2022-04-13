@@ -8,7 +8,7 @@ import LoginPageValidator from './login-page.validator';
     templateUrl: './login-page.component.html',
     styleUrls: ['./login-page.component.css']
 })
-export class LoginPageComponent implements OnInit {
+export class LoginPageComponent {
 
     @ViewChild(ErrorMessageComponent) errorMessageComponent: ErrorMessageComponent | undefined;
 
@@ -21,7 +21,13 @@ export class LoginPageComponent implements OnInit {
         })
     }
 
-    ngOnInit(): void {
+    async login() {
+        if(this.form.invalid) {
+            this.form.markAllAsTouched();
+            return
+        }
+
+        
     }
 
 }

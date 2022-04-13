@@ -2,18 +2,25 @@
     <div
         class="label__border label__border--left"
         (click)="this.focusOnInput()"
+        [ngClass]="{ 'label_border--active': this.onFocus }"
     ></div>
     <span class="label__value typo-field-label">{{this.label}}</span>
     <div
         class="label__border label__border--right"
         (click)="this.focusOnInput()"
+        [ngClass]="{ 'label_border--active': this.onFocus }"
     ></div>
 </div>
-<div class="field-wrapper" (click)="this.focusOnInput()">
+<div
+    class="field-wrapper"
+    (click)="this.focusOnInput()"
+    [ngClass]="{ 'field-wrapper--active': this.onFocus }"
+>
     <input
         #input
         class="field-wrapper__input typo-field-value"
-        (blur)="this.onBaseTouchedFn()"
+        (blur)="this.onInputBlur()"
+        (focus)="this.onInputFocus()"
         (input)="this.onBaseChangeFn($event)"
         [(ngModel)]="value"
         [readonly]="this.readOnly"

@@ -32,8 +32,7 @@ export class BaseControlValueAccessor implements ControlValueAccessor {
     registerOnChange(fn: any): void {
         this.onBaseChangeFn = (event: Event, isNumber: boolean = false) => {
             const value = (event.target as HTMLInputElement).value;
-            console.log((event.target as HTMLInputElement).type)
-            fn(isNumber ? parseFloat(value) : value)
+            fn((event.target as HTMLInputElement).type === "number" ? parseFloat(value) : value)
         };
     }
     /**

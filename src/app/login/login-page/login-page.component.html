@@ -16,7 +16,11 @@
                 [type]="'password'"
             ></app-bordered-input>
             <div class="form__buttons">
-                <button class="primary-button typo-button-label">Entrar</button>
+                <button
+                    class="primary-button typo-button-label"
+                    (click)="this.login()"
+                    [disabled]="this.form.invalid"
+                >Entrar</button>
                 <button class="tertiary-button typo-button-label">Esqueci minha senha</button>
             </div>
         </div>
