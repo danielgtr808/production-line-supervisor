@@ -8,14 +8,46 @@
     src: url('./assets/fonts/Roboto-Regular.ttf')
 }
 
+@font-face {
+    font-family: 'Roboto';
+    font-weight: 500;
+    src: url('./assets/fonts/Roboto-Medium.ttf')
+}
+
 :root {
+    --c-bg-10: #FFFFFF;
+    --c-bg-50: #F4F4F4;
     --c-field-border: rgba(0, 0, 0, 0.1);
     --c-field-label: rgba(0, 0, 0, 0.6);
     --c-field-value: rgba(0, 0, 0, 0.8);
+    --c-p-90: #001E50;
 }
 
 html {
     font-family: 'Roboto';
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    align-items: center;
+    background-color: var(--c-bg-50);
+    display: flex;
+    justify-content: center;
+}
+
+app-root {
+    display: contents;
+}
+
+.typo-button-label {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 100%;
 }
 
 .typo-field-label {
@@ -42,5 +74,31 @@ html {
     background-image: url('./assets/svg/open-eye-icon.svg');
     height: 24px;
     width: 24px;
+}
 
+.company-logo {
+    background-image: url('./assets/svg/company-logo.svg');
+    height: 48px;
+    width: 48px;
+}
+
+.global-shadow {
+    box-shadow: 0px 7px 29px rgba(100, 100, 111, 0.2);
+}
+
+.primary-button {
+    background-color: var(--c-p-90);
+    border: none;
+    border-radius: 4px;
+    color: white;
+    outline: none;
+    padding: 16px;
+    width: 100%;
+}
+
+.tertiary-button {
+    background-color: transparent;
+    border: none;
+    color: var(--c-p-90);
+    outline: none;
 }

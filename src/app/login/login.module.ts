@@ -6,8 +6,8 @@ import { RouterModule, Routes } from '@angular/router';
 
 const loginRoutes: Routes = [
     {
-        path: '',
-        component: BorderedInputComponent
+        component: LoginPageComponent,
+        path: ''
     }
 ]
 
