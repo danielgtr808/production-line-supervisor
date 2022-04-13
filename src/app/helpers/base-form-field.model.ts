@@ -53,8 +53,7 @@ export class BaseFormField extends BaseControlValueAccessor {
      * estado "touched", retorna a primeira mensagem de erro associada ao "abstractControl".
      */
     get error(): string {
-        if(!this.abstractControl) return ""
-        if(this.abstractControl.untouched) return ""
+        if(!this.showError || !this.abstractControl) return "";
 
         let errorMessage: string = "";
         for(const errorCode in this.abstractControl.errors) {
@@ -64,6 +63,15 @@ export class BaseFormField extends BaseControlValueAccessor {
 
         return errorMessage;
     }
+
+    get showError(): boolean {
+        if(!this.abstractControl) return false
+        if(this.abstractControl.untouched) return false
+        if(Object.keys(this.abstractControl).length === 0) return false
+
+        return true;
+    }
+
     /**
      * Chamado toda vez que o valor do campo muda, é usado para emitir o evento {@link inputEvent},
      * e então chama a implementação base, que é a função {@link onBaseChangeFn}

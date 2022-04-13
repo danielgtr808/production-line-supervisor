@@ -3,13 +3,26 @@
         class="label__border label__border--left"
         (click)="this.focusOnInput()"
     ></div>
-    <span class="label__value typo-field-label">Email</span>
+    <span class="label__value typo-field-label">{{this.label}}</span>
     <div
         class="label__border label__border--right"
         (click)="this.focusOnInput()"
     ></div>
 </div>
 <div class="field-wrapper" (click)="this.focusOnInput()">
-    <input #input class="field-wrapper__input typo-field-value" type="text">
-    <div class="open-eye-icon"></div>
+    <input
+        #input
+        class="field-wrapper__input typo-field-value"
+        (blur)="this.onBaseTouchedFn()"
+        (input)="this.onBaseChangeFn($event)"
+        [(ngModel)]="value"
+        [readonly]="this.readOnly"
+        [type]="this.type"
+    >
+    <div
+        (click)="this.togglePasswordView()"
+        [ngClass]="{ 'closed-eye-icon': this.type !== 'password', 'open-eye-icon': this.type === 'password' }"
+        *ngIf="this.isPassword"
+    ></div>
 </div>
+<span class="error-message typo-field-error-message" *ngIf="this.showError">{{this.error}}</span>

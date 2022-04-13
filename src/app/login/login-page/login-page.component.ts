@@ -1,15 +1,27 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { ErrorMessageComponent } from 'src/app/shared/error-message/error-message.component';
+import LoginPageValidator from './login-page.validator';
 
 @Component({
-  selector: 'app-login-page',
-  templateUrl: './login-page.component.html',
-  styleUrls: ['./login-page.component.css']
+    selector: 'app-login-page',
+    templateUrl: './login-page.component.html',
+    styleUrls: ['./login-page.component.css']
 })
 export class LoginPageComponent implements OnInit {
 
-  constructor() { }
+    @ViewChild(ErrorMessageComponent) errorMessageComponent: ErrorMessageComponent | undefined;
 
-  ngOnInit(): void {
-  }
+    form: FormGroup;
+
+    constructor(formBuilder: FormBuilder, validator: LoginPageValidator) {
+        this.form = formBuilder.group({
+            email: new FormControl('', validator.email),
+            password: new FormControl('', validator.password)
+        })
+    }
+
+    ngOnInit(): void {
+    }
 
 }

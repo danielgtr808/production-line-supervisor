@@ -1,13 +1,16 @@
 import { CommonModule } from '@angular/common';
 import { CircuitComponent } from './circuit/circuit.component';
+import { ErrorMessageComponent } from './error-message/error-message.component';
 import { NgModule } from '@angular/core';
 
 @NgModule({
     declarations: [
-        CircuitComponent
+        CircuitComponent,
+        ErrorMessageComponent
     ],
     exports: [
-        CircuitComponent
+        CircuitComponent,
+        ErrorMessageComponent
     ],
     imports: [
         CommonModule

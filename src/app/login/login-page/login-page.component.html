@@ -1,9 +1,20 @@
 <div class="content global-shadow">
-    <form>
+    <form [formGroup]="this.form" [noValidate]>
         <div class="company-logo"></div>
         <div class="form__fields">
-            <app-bordered-input></app-bordered-input>
-            <app-bordered-input></app-bordered-input>
+            <app-error-message></app-error-message>
+            <app-bordered-input
+                [abstractControl]="this.form.controls['email']"
+                formControlName="email"
+                [label]="'Email'"
+                [type]="'email'"
+            ></app-bordered-input>
+            <app-bordered-input
+                [abstractControl]="this.form.controls['password']"
+                [formControlName]="'password'"
+                [label]="'Senha'"
+                [type]="'password'"
+            ></app-bordered-input>
             <div class="form__buttons">
                 <button class="primary-button typo-button-label">Entrar</button>
                 <button class="tertiary-button typo-button-label">Esqueci minha senha</button>

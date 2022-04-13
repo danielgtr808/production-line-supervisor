@@ -1,22 +1,39 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, forwardRef, OnInit, ViewChild } from '@angular/core';
+import { NG_VALUE_ACCESSOR } from '@angular/forms';
+import { BaseFormField } from 'src/app/helpers/base-form-field.model';
 
 @Component({
     selector: 'app-bordered-input',
     templateUrl: './bordered-input.component.html',
-    styleUrls: ['./bordered-input.component.css']
+    styleUrls: ['./bordered-input.component.css'],
+    providers: [     
+        {
+            provide: NG_VALUE_ACCESSOR, 
+            useExisting: forwardRef(() => BorderedInputComponent),
+            multi: true     
+        }   
+    ]  
 })
-export class BorderedInputComponent implements OnInit {
+export class BorderedInputComponent extends BaseFormField implements OnInit {
 
     @ViewChild('input') inputElement: ElementRef | undefined;
+    private _isPassword: boolean = false;
 
-    constructor() { }
+    get isPassword(): boolean {
+        return this._isPassword;
+    }
 
     ngOnInit(): void {
+        this._isPassword = this.type === "password";
     }
 
     focusOnInput(): void {
         if(!this.inputElement) return;
         (this.inputElement.nativeElement as HTMLElement).focus();
+    }
+
+    togglePasswordView(): void {
+        this.type = this.type === "password" ? "text" : "password";
     }
 
 }

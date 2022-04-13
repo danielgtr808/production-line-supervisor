@@ -18,6 +18,7 @@
     --c-bg-10: #FFFFFF;
     --c-bg-50: #F4F4F4;
     --c-field-border: rgba(0, 0, 0, 0.1);
+    --c-field-error-message: #D50000;
     --c-field-label: rgba(0, 0, 0, 0.6);
     --c-field-value: rgba(0, 0, 0, 0.8);
     --c-p-90: #001E50;
@@ -48,6 +49,13 @@ app-root {
     font-weight: 500;
     font-size: 1rem;
     line-height: 100%;
+}
+
+.typo-field-error-message {
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 400px;
+    line-height: 150%;
 }
 
 .typo-field-label {
