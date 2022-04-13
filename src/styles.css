@@ -1,3 +1,46 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import url('./reset.css');
+
+@font-face {
+    font-family: 'Roboto';
+    font-weight: 400;
+    src: url('./assets/fonts/Roboto-Regular.ttf')
+}
+
+:root {
+    --c-field-border: rgba(0, 0, 0, 0.1);
+    --c-field-label: rgba(0, 0, 0, 0.6);
+    --c-field-value: rgba(0, 0, 0, 0.8);
+}
+
+html {
+    font-family: 'Roboto';
+}
+
+.typo-field-label {
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 400px;
+    line-height: 16px;
+}
+
+.typo-field-value {
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+}
+
+.closed-eye-icon {
+    background-image: url('./assets/svg/closed-eye-icon.svg');
+    height: 24px;
+    width: 24px;
+}
+
+.open-eye-icon {
+    background-image: url('./assets/svg/open-eye-icon.svg');
+    height: 24px;
+    width: 24px;
+
+}

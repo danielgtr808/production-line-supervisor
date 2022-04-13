@@ -1,0 +1,15 @@
+<div class="label">
+    <div
+        class="label__border label__border--left"
+        (click)="this.focusOnInput()"
+    ></div>
+    <span class="label__value typo-field-label">Email</span>
+    <div
+        class="label__border label__border--right"
+        (click)="this.focusOnInput()"
+    ></div>
+</div>
+<div class="field-wrapper" (click)="this.focusOnInput()">
+    <input #input class="field-wrapper__input typo-field-value" type="text">
+    <div class="open-eye-icon"></div>
+</div>
