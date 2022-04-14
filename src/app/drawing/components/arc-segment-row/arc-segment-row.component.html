@@ -1,0 +1,31 @@
+<ng-container *ngIf="this.segment">
+    <td>
+        <app-segment-field
+            [label]="'Raio'"
+            (valueChange)="this.onInput($event, 'radius')"
+            [value]="this.segment.radius"
+        ></app-segment-field>
+    </td>
+    <td>
+        <app-segment-field
+            [label]="'Graus'"
+            (valueChange)="this.onInput($event, 'degrees')"
+            [value]="this.segment.degrees"
+        ></app-segment-field>
+    </td>
+    <td>
+        <app-segment-field
+            [label]="'Inclinação'"
+            (valueChange)="this.onInput($event, 'inclination')"
+            [value]="this.segment.inclination"
+        ></app-segment-field>
+    </td>
+    <td>
+        <app-segment-field
+            [config]="this.sweepConfiguration"
+            [label]="'Inverter'"
+            (valueChange)="this.onInput($event, 'sweep')"
+            [value]="this.segment.sweep"
+        ></app-segment-field>
+    </td>
+</ng-container> 

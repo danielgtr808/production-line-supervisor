@@ -1,0 +1,11 @@
+<svg
+    (mousedown)="this.startScroll($event)"
+    (mouseleave)="this.endScroll()"
+    (mousemove)="this.scrolling($event)"
+    (mouseup)="this.endScroll()"
+    (wheel)="this.zoom($event)"
+>
+    <g [attr.transform]="this.transform">
+        <path [attr.d]="this.d"></path>
+    </g>
+</svg>

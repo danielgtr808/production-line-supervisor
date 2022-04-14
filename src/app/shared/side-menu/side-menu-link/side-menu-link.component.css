@@ -1,0 +1,33 @@
+:host {
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+}
+
+.status {
+    background-color: var(--c-primary-90);
+    border-radius: 0px 4px 4px 0px;
+    opacity: 0;
+    width: 4px;
+}
+
+.status--active {
+    opacity: 1;
+}
+
+.label-wrapper {
+    align-items: center;
+    color: var(--c-dark-100);
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    gap: 12px;
+    opacity: 0.6;
+    padding: 16px 24px;
+}
+
+.label-wrapper:hover, .label-wrapper--active {
+    color: var(--c-primary-90);
+    opacity: 1;
+    transition: 150ms;
+}

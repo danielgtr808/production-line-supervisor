@@ -1,0 +1,28 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.label {
+    color: var(--c-dark-40)
+}
+
+input, select {
+    background: transparent;
+    border: none;
+    color: var(--c-dark-80);
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+input[type="number"]:hover, input[type="number"]:focus {
+    -moz-appearance: number-input;
+}
+
+input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-inner-spin-button {
+    margin: 0;
+    -webkit-appearance: none;
+}

@@ -1,0 +1,30 @@
+:host {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    padding: 0px 16px;
+    width: 272px;
+}
+
+.data {
+    align-items: center;
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    gap: 12px;
+}
+
+.identification {
+    display: block;
+}
+
+.icon-logout {
+    cursor: pointer;
+    opacity: 0.6;
+    transition: 150ms;
+}
+
+.icon-logout:hover {
+    opacity: 1;
+}

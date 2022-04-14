@@ -1,0 +1,13 @@
+<div
+    class="status"
+    [routerLink]="this.navigateOnClick"
+    [routerLinkActive]="'status--active'"
+></div>
+<div
+    class="label-wrapper"
+    [routerLink]="this.navigateOnClick"
+    [routerLinkActive]="'label-wrapper--active'"
+>
+    <div [ngClass]="this.iconClass"></div>
+    <span class="text-preset-400">{{this.label}}</span>
+</div>

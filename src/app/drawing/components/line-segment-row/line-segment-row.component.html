@@ -1,0 +1,16 @@
+<ng-container *ngIf="this.segment">
+    <td>
+        <app-segment-field
+            [label]="'Comprimento'"
+            (valueChange)="this.onInput($event, 'length')"
+            [value]="this.segment.length"
+        ></app-segment-field>
+    </td>
+    <td>
+        <app-segment-field
+            [label]="'Altura'"
+            (valueChange)="this.onInput($event, 'heigth')"
+            [value]="this.segment.heigth"
+        ></app-segment-field>
+    </td>
+</ng-container> 

@@ -1,0 +1,42 @@
+<div class="tables">
+    <table>
+        <tbody>
+            <tr *ngFor="let segment of this.segments">
+                <td>
+                    <app-segment-field
+                        [label]="'Segmento'"
+                        [config]="changeSegmentTypeConfiguration"
+                        [value]="segment.type"
+                        (valueChange)="this.changeSegmentType(segment, $event)"
+                    ></app-segment-field>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table>
+        <tbody>
+            <tr *ngFor="let segment of this.segments">
+                <app-arc-segment-row
+                    *ngIf="this.segment.type === 'Arc'"
+                    [segment]="segment"
+                ></app-arc-segment-row>
+                <app-line-segment-row
+                    *ngIf="this.segment.type === 'Line'"
+                    [segment]="segment"
+                ></app-line-segment-row>
+            </tr>
+        </tbody>
+    </table>
+    <table>
+        <tbody>
+            <tr *ngFor="let segment of this.segments">
+                <td>
+                    <div
+                        class="icon-delete-segment-row"
+                        (click)="this.deleteSegment(segment)"
+                    ></div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

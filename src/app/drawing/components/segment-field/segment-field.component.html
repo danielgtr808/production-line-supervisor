@@ -1,0 +1,24 @@
+<ng-container *ngIf="this.config">
+    <span class="label text-preset-300">{{this.label}}</span>
+    <input
+        appResponsiveField
+        class="text-preset-390"
+        (input)="this.fieldValueChange($event)"
+        [(ngModel)]="this.value"
+        *ngIf="this.config.type === 'input'"
+        type="number"
+    >
+    <select
+        class="text-preset-390"
+        (change)="this.fieldValueChange($event)"
+        [(ngModel)]="this.value"
+        *ngIf="this.config.type === 'select'"
+    >
+        <option style="display: none"></option>
+        <option
+            [attr.selected]="option.defaultValue ? true : null"
+            *ngFor="let option of this.config.data"
+            [value]="option.value"
+        >{{option.display}}</option>
+    </select>
+</ng-container>

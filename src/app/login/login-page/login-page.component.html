@@ -1,0 +1,28 @@
+<div class="content global-shadow">
+    <form [formGroup]="this.form" [noValidate]>
+        <div class="icon-logo"></div>
+        <div class="form__fields">
+            <app-error-message></app-error-message>
+            <app-bordered-input
+                [abstractControl]="this.form.controls['email']"
+                formControlName="email"
+                [label]="'Email'"
+                [type]="'email'"
+            ></app-bordered-input>
+            <app-bordered-input
+                [abstractControl]="this.form.controls['password']"
+                [formControlName]="'password'"
+                [label]="'Senha'"
+                [type]="'password'"
+            ></app-bordered-input>
+            <div class="form__buttons">
+                <app-primary-button
+                    (click)="this.login()"
+                    [disabled]="this.form.invalid"
+                    [label]="'Entrar'"
+                ></app-primary-button>
+                <app-tertiary-button [label]="'Esqueci minha senha'"></app-tertiary-button>
+            </div>
+        </div>
+    </form>
+</div>
