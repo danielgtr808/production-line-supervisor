@@ -4,3 +4,8 @@
     [leadingIcon]="'icon-plus'"
     [label]="'Adicionar segmento'"
 ></app-tertiary-button>
+<div>
+    <span *ngFor="let segment of this.segments">
+        {{segment.linearLength}}  
+    </span>
+</div>

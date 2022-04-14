@@ -12,6 +12,10 @@ class ArcSegment {
         public sweep: number
     ) { }
 
+    get linearLength(): number {
+        return (Math.PI*this.radius*2)*(this.degrees/360);
+    }
+
     get path(): string {
         return `a${this.radius} ${this.radius} 0 0 ${this.sweep} ${this.pointB}`;
     }

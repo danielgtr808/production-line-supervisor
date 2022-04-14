@@ -8,6 +8,7 @@
 }
 
 .icon-logo {
+    color: var(--c-primary-90);
     font-size: 36px;
 }
 
